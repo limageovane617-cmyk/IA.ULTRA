@@ -768,22 +768,4 @@ if pergunta:
 
     # ========================================================
     # 🤖 GEMINI
-    # ========================================================
-
-    try:
-
-        with st.chat_message("assistant"):
-
-            with st.spinner(
-                "🤖 Alex IA está pensando..."
-            ):
-
-                resposta = cliente.models.generate_content(
-                    model=GEMINI_MODEL,
-                    contents=instrucao
-                )
-
-                texto = (
-                    resposta.text
-                    if resposta.text
-                    else "Não consegui gerar 
+    # ==============
