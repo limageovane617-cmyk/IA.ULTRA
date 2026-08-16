@@ -44,7 +44,7 @@ from config_ultra import (
     CREATOR_NAME
 )
 
-from servicos import (
+from servicos import  (
     criar_cliente_gemini,
     verificar_servicos
 )
