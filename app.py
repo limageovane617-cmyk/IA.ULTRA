@@ -768,4 +768,39 @@ if pergunta:
 
     # ========================================================
     # 🤖 GEMINI
-    # ==============
+    # ========================================================
+
+    try:
+
+        with st.chat_message("assistant"):
+
+            with st.spinner(
+                "🤖 Alex IA está pensando..."
+            ):
+
+                resposta = cliente.models.generate_content(
+                    model=GEMINI_MODEL,
+                    contents=instrucao
+                )
+
+                texto = (
+                    resposta.text
+                    if resposta.text
+                    else "Não consegui gerar uma resposta."
+                )
+
+            st.write(texto)
+
+            if st.session_state.usar_voz:
+                mostrar_audio(texto)
+
+        st.session_state.mensagens.append({
+            "role": "assistant",
+            "content": texto,
+        })
+
+    except Exception as erro:
+
+        st.error(
+            f"❌ Erro ao conversar com o Gemini: {erro}"
+        )
